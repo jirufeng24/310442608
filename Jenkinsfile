@@ -22,7 +22,18 @@ pipeline {
 				bat """D:\\python\\python.exe E:\\demo\\Load_JLink1.py"""
 				echo 'Jflash脚本运行结束'
 			}
-		}
-       
+		}   
+    }
+	 post { 
+        always { 
+            emailext( 
+                subject: '构建通知：${PROJECT_NAME} - Build # ${BUILD_NUMBER} - ${BUILD_STATUS}!', 
+                body: '${FILE,path="email.html"}', 
+                to: 'a17521031790@163.com',
+                from: 'a17521031790@163.com'
+                ) 
+            
+        } 
+        
     }
 }
