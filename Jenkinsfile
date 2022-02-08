@@ -1,5 +1,8 @@
 pipeline {
     agent any
+	options {
+        timeout (200)
+    }
     stages {
         stage('pull code') {
             
