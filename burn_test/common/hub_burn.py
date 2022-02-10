@@ -1,4 +1,4 @@
-from hub_web import Web
+from public.hub_web import Web
 import time
 from config.config import Params
 
