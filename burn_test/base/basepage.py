@@ -112,7 +112,7 @@ class Operation():
 
     def upload_file_by_path(self, filepath):
         app = pywinauto.Desktop()
-        dlg = app["Open"]
+        dlg = app["打开"]
         send_keys(filepath)
         # dlg["Open"].click()
         # promt = app.top_window_()
