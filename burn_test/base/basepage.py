@@ -3,29 +3,28 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 import pywinauto
 from pywinauto.keyboard import send_keys
-import time 
+import time
 import os
-
-
-
+from config.hub_web_elements import *
 
 class Operation():
     def __init__(self):
         path1 = os.path.realpath(__file__)
-        rootpath = os.path.split(path1)[0]
+        rootpath = os.path.dirname(os.path.split(path1)[0])
         print(path1, rootpath)
-       
-        self.chrome_driver_path = rootpath+"\chromedriver.exe"
-        
+        self.chrome_driver_path = rootpath + "\chromedriver.exe"
+
+
     def open_chrome(self, url):
         self.url = url
-        print (self.chrome_driver_path)
+        print(self.chrome_driver_path)
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument("--ignore-certificate-errors")
         chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
-        self.browser =webdriver.Chrome(executable_path=self.chrome_driver_path, options=chrome_options)
+        self.browser = webdriver.Chrome(executable_path=self.chrome_driver_path, options=chrome_options)
         self.browser.maximize_window()
         self.browser.get(self.url)
+        # self.browser.get(base_url)
         print(self.browser.current_url)
 
     def get_title(self):
@@ -33,31 +32,31 @@ class Operation():
 
     def get_url(self):
         return self.browser.current_url
-    
+
     def get_table(self):
-        table_data=[]
-        table=self.browser.find_elements_by_tag_name('table')
+        table_data = []
+        table = self.browser.find_elements_by_tag_name('table')
         print(table)
         if len(table) == 0:
             return table
         else:
             trlist = table[1].find_elements_by_tag_name('tr')
 
-            index_1 =0
+            index_1 = 0
             for row in trlist:
-        
+
                 tdlist = row.find_elements_by_tag_name('td')
                 table_data.append([])
-                
-                for col in tdlist:
-                    #col.is_displayed()
-                    
-                    table_data[index_1].append(col.text)
-                    #print(col.text + '\t',end='')
-                index_1=index_1+1
 
-            #print(table_data)
-            return table_data 
+                for col in tdlist:
+                    # col.is_displayed()
+
+                    table_data[index_1].append(col.text)
+                    # print(col.text + '\t',end='')
+                index_1 = index_1 + 1
+
+            # print(table_data)
+            return table_data
 
     def input_text(self, path, text, clear=True, enter=False):
         if clear:
@@ -66,28 +65,28 @@ class Operation():
         self.browser.find_element_by_xpath(path).send_keys(text)
         if enter:
             self.browser.find_element_by_xpath(path).send_keys(Keys.ENTER)
-    
+
     def get_text_by_path(self, path):
-        text= self.browser.find_element_by_xpath(path).text
+        text = self.browser.find_element_by_xpath(path).text
         return text
 
     def get_element_text(self, itemelement):
         text = itemelement.text
-        return text       
+        return text
 
     def get_text(self, path, by="xpath"):
-        text= self.browser.find_element_by_xpath(path).get_attribute("value")
+        text = self.browser.find_element_by_xpath(path).get_attribute("value")
         return text
 
     def click_element_by_path(self, path):
         self.browser.find_element_by_xpath(path).click()
 
     def click_element(self, itemelement):
-        itemelement.click()       
-    
+        itemelement.click()
+
     def double_click_element(self, path, by="xpath"):
         element = self.browser.find_element_by_xpath(path)
-        ActionChains(self.browser).double_click(element).perform() 
+        ActionChains(self.browser).double_click(element).perform()
 
     def mouse_over_element(self, path, by="xpath"):
         element = self.browser.find_element_by_xpath(path)
@@ -97,8 +96,8 @@ class Operation():
         self.browser.switch_to.window(self.browser.window_handles[windowindex])
 
     def get_class_list(self, classname):
-        elements = self.browser.find_elements_by_class_name(classname)   
-        return elements     
+        elements = self.browser.find_elements_by_class_name(classname)
+        return elements
 
     def get_element_by_xpath(self, itemelement, extendpath):
         getelement = itemelement.find_element_by_xpath(extendpath)
@@ -112,15 +111,13 @@ class Operation():
         self.browser.refresh()
 
     def upload_file_by_path(self, filepath):
-       app = pywinauto.Desktop()
-       # dlg = app["Open"]
-       dlg = app["打开"]
-       send_keys(filepath)  
-       # dlg["Open"].click()
-       # promt = app.top_window_()
-       # promt.Button.Click()
-       dlg["打开"].click()
-
+        app = pywinauto.Desktop()
+        dlg = app["Open"]
+        send_keys(filepath)
+        # dlg["Open"].click()
+        # promt = app.top_window_()
+        # promt.Button.Click()
+        dlg["打开"].click()
 
     def screenshot_name(self, name=""):
         picture_time = time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime(time.time()))
@@ -151,6 +148,3 @@ class Operation():
 
     def close_web(self):
         self.browser.close()
-
-
-    
