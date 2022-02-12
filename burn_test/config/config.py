@@ -10,3 +10,4 @@ class Params:
     start_address = "0x60000000"
     user_name = "admin"
     passwd = "Aa123456!"
+    base_url = "https://192.168.7.100/index.html"

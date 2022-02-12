@@ -9,8 +9,8 @@ from config.config import Params
 
 class TestCloudBurn:
 
-    #def setup(self):
-    #    copy_share_disk_files(Params.share_disk_path, Params.local_path, Params.cloud_files)
+    # def setup(self):
+    #     copy_share_disk_files(Params.share_disk_path, Params.local_path, Params.cloud_files)
 
 
     def test_cloud_burn(self):
