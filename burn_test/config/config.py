@@ -11,3 +11,6 @@ class Params:
     user_name = "admin"
     passwd = "Aa123456!"
     base_url = "https://192.168.7.100/index.html"
+
+    output_path = r"E:\burn_test\output"
+    log_level = "INFO"

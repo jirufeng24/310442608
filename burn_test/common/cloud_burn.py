@@ -1,6 +1,7 @@
 import os
 import platform
 from config.config import Params
+from public.logger_handle import log
 
 
 class CloudBurn:
@@ -11,22 +12,24 @@ class CloudBurn:
             program_path = "C:\Program Files (x86)"
         else:
             program_path = "C:\Program Files"
+        log.info("the program path is:{}.".format(program_path))
         return program_path
 
     def creat_path(self, address="\SEGGER\JLink\JFlash.exe"):
         programPath = self.get_program_path()
         absolutePath = programPath + address
+        log.info("JFlash.exe full path is:{}.".format(absolutePath))
         return absolutePath
 
     def production_programming(self):
         tool_path = self.creat_path()
         Command_Data = "\"{0}\" -openprj".format(tool_path) + Params.cloud_flash_file + " -open" + \
                        Params.cloud_bin_file + "," + Params.start_address + " -auto -exit"
-        print("Command_Data:{}.".format(Command_Data))
+        log.info("production Command_Data:{}.".format(Command_Data))
         if (os.system(Command_Data) == 0):
-            print("OK for MCU production programming!")
+            log.info("OK for MCU production programming!")
         else:
-            print("ERROR: JFlash returned an error while flashing the application on the target")
+            log.error("ERROR: JFlash returned an error while flashing the application on the target")
 
 
 # if __name__ == '__main__':
