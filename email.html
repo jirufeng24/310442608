@@ -7,7 +7,7 @@
 <table width="95%" cellpadding="0" cellspacing="0"
        style="font-size: 11pt; font-family: Tahoma, Arial, Helvetica, sans- serif">
     <tr>
-        <td>(本邮件是程序自动下发的，请勿回复！)</td>
+        <td>(本邮件是Pipeline程序构建Job后自动下发的，请勿回复！)</td>
     </tr>
     <tr>
         <td><h2><font color="#0000FF">构建结果 - ${BUILD_STATUS}</font></h2></td>
@@ -23,35 +23,12 @@
                 <li>项目名称&nbsp;：&nbsp;${PROJECT_NAME}</li>
                 <li>构建编号&nbsp;：&nbsp;第${BUILD_NUMBER}次构建</li>
                 <li>触发原因：&nbsp;${CAUSE}</li>
-                <li>构建日志：&nbsp;<a href="${BUILD_URL}console">${BUILD_URL}console</a></li>
-                <li>构建&nbsp;&nbsp;Url&nbsp;：&nbsp;<a href="${BUILD_URL}">${BUILD_URL}</a></li>
-                <li>工作目录&nbsp;：&nbsp;<a href="${PROJECT_URL}ws">${PROJECT_URL}ws</a></li>
-                <li>项目&nbsp;&nbsp;Url&nbsp;：&nbsp;<a href="${PROJECT_URL}">${PROJECT_URL}</a></li>
+				<li>项目&nbsp;&nbsp;Url&nbsp;：&nbsp;<a href="${PROJECT_URL}">${PROJECT_URL}</a></li>
+				<li>登录用户：jirufeng             密码：123456</li><br />
+				<li>用例报告 ： <a href="${PROJECT_URL}allure">${PROJECT_URL}allure</a></li><br />
+				<li>构建日志：&nbsp;<a href="${BUILD_URL}console">${BUILD_URL}console</a></li>             
             </ul>
         </td>
-    </tr>
-    <tr>
-        <td><b><font color="#0B610B">Changes Since Last Successful Build:</font></b>
-            <hr size="2" width="100%" align="center"/>
-        </td>
-    </tr>
-    Pipeline定期执行Job，构建后发送邮件
-    <tr>
-        <td>
-            <ul>
-                <li>历史变更记录 : <a href="${PROJECT_URL}changes">${PROJECT_URL}changes</a></li>
-            </ul> ${CHANGES_SINCE_LAST_SUCCESS,reverse=true, format="Changes for Build #%n:<br />%c<br />",showPaths=true,changesFormat="<pre>By user:%a<br />Github message:%m</pre>",pathFormat="&nbsp;&nbsp;&nbsp;&nbsp;%p"}
-        </td>
-    </tr>
-    <tr>
-        <td><b>Failed Test Results</b>
-            <hr size="2" width="100%" align="center"/>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <pre
-                    style="font-size: 11pt; font-family: Tahoma, Arial, Helvetica, sans-serif">$FAILED_TESTS</pre> <br/></td>
     </tr>
     <tr>
         <td><b><font color="#0B610B">构建日志(最后 100行):</font></b>
