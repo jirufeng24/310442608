@@ -5,7 +5,7 @@ println env.BUILD_NUMBER
 pipeline {
     agent any
     options {
-        timeout(time:60, unit: 'MINUTES')
+        timeout (60)
         buildDiscarder(logRotator(numToKeepStr: '10'))
 		disableConcurrentBuilds()
     }
