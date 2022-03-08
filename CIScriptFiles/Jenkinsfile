@@ -9,7 +9,7 @@ pipeline {
 			steps {
 			    echo 'Jflash开始烧录'
 				bat '''chcp 65001
-				robot --pythonpath . --include test "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\chinaGateway_cloud_regression_SCM\\CIScriptFiles\\chinaGateway\\Pocket Cloud 回归\\Clould 回归\\RF_demo"'''
+				robot --pythonpath . --test 修改网关名称 ESP功能 "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\chinaGateway_cloud_regression_SCM\\CIScriptFiles\\chinaGateway\\Pocket Cloud 回归\\Clould 回归\\cloud 回归测试"'''
 				echo 'Jflash脚本运行结束'
 			}
 		}   
