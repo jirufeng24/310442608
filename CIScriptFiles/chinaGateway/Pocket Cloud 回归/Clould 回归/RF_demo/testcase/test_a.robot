@@ -10,7 +10,7 @@ ${var3}     create list      hello world
 @{var}     create list      1  a  8
 
 *** Test Cases ***
-score_test_0002
+修改网关名称
     [Tags]    test
 	log to console    BBBBBBBBBBBBBBBB
 	log to console    ${var2}
