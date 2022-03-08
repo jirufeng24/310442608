@@ -8,7 +8,8 @@ pipeline {
 		stage('run jflash program') {
 			steps {
 			    echo 'Jflash开始烧录'
-				bat """robot --pythonpath . --include test C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\chinaGateway_cloud_regression_SCM\\CIScriptFiles\\chinaGateway\\Pocket Cloud 回归\\Clould 回归\\RF_demo"""
+				bat '''chcp 65001
+				robot --pythonpath . --include test "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\chinaGateway_cloud_regression_SCM\\CIScriptFiles\\chinaGateway\\Pocket Cloud 回归\\Clould 回归\\RF_demo"'''
 				echo 'Jflash脚本运行结束'
 			}
 		}   
