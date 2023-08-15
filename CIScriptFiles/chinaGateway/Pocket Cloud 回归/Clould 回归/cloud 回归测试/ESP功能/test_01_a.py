@@ -4,6 +4,8 @@ import allure
 import os
 import sys
 
+project_path = os.path.split(os.path.split(os.path.realpath(__file__))[0])[0]
+sys.path.append(project_path)
 
 @allure.feature("Verify read and write all registers of DCM.")
 class TestDCM:
