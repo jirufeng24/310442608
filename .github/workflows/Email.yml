@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - name: Send an email
-      uses: actions/email@v2
+      uses: actions/email@v6
       with:
         to: rufeng.ji@non.se.com
         subject: The script has been run
