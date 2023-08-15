@@ -18,4 +18,3 @@ on:
         - ULP command
         - All
         default: 'Modbus' 
-
