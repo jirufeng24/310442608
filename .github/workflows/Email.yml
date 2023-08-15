@@ -1,6 +1,5 @@
 on:
   workflow_dispatch:
-  schedule:
 name: nightly
 jobs:
   nightly:
