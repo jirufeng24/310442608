@@ -1,19 +1,21 @@
 name: nightly
 on:
   workflow_dispatch:
-    inputs: 
-  		isBurn:
-          type: boolean
-          description: Need to burn the version?
-        versionNumber: 
-          type:  string
-          # description: 'Enter the target version number.'      
-          default: 'v1.1.6' 
-        choice:
-          type: choice
-          description: Select the TAG that needs to be executed.
-          options:
-          - Modbus
-          - ULP command
-          - All
+    inputs:
+      isBurn:
+        type: boolean
+        required: true
+        description: Need to burn the version?
+      versionNumber: 
+        type:  string
+        description: Enter the target version number.    
+        default: 'v1.1.6' 
+      choice:
+        type: choice
+        description: Select the TAG that needs to be executed.
+        options:
+        - Modbus
+        - ULP command
+        - All
+        default: 'Modbus' 
 
