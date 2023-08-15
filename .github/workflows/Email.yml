@@ -13,8 +13,11 @@ jobs:
         echo 11111111111111111
         date
     - name: Send an email
-      uses: actions/email@v6
-      with:
-        to: rufeng.ji@non.se.com
-        subject: The script has been run
-        body: The script has completed successfully. 
+      run: |
+        echo 2222222222222222
+        date
+      # uses: actions/email@v6
+      # with:
+      #   to: rufeng.ji@non.se.com
+      #   subject: The script has been run
+      #   body: The script has completed successfully. 
