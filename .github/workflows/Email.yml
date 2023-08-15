@@ -28,10 +28,7 @@ jobs:
               repo: context.repo.repo,
               body: `New nightly build: ${{ needs.nightly.result }}
               * Date: ${{ steps.get_date.outputs.DATE }}
-              * Branch: ${{ github.ref_name }}
               * Link: https://github.schneider-electric.com/ShenNong/dcm
-              * Latest commit id: ${{ github.sha }}
-              * Actions: https://github.schneider-electric.com/ShenNong/dcm/actions/runs/${{ github.run_id }}
               * Nightly package: https://jfrog-apac.se.com/ui/repos/tree/General/shennong-develop-generic-prod-fed/nightly?projectKey=shennong
               * Notification: @SESA627952 @SESA657209`
             })
