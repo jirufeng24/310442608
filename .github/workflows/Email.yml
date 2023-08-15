@@ -43,7 +43,7 @@ jobs:
       - name: step2:-Install the required libraries.
         run: |
           echo 开始检查安装case脚本依赖的库和类
-          pip install -r .\CIScriptFiles/requirements.txt
+          # pip install -r .\CIScriptFiles/requirements.txt
           echo 安装case脚本依赖库结束
       - name: step3:-Run the testcase script.
         run: |
