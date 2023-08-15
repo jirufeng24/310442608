@@ -35,7 +35,7 @@ jobs:
       - name: step1:-Checkout the case's scripts.
         run:  |
           echo 11111111111111111111111111
-          # echo "isBurn: ${{ github.event.inputs.isBurn }}"
+          echo "isBurn: ${{ github.event.inputs.isBurn }}"
           echo "versionNumber: ${{ github.event.inputs.versionNumber }}"
           echo "isConnected: ${{ github.event.inputs.isConnected }}"
           echo "tagName: ${{ github.event.inputs.tagName }}"
