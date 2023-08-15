@@ -16,13 +16,13 @@ class TestDCM:
         print(111111111111111111111)
         assert 1==1
       
-    @pytest.mark.ULP command
+    @pytest.mark.ULPCommand
     @allure.description("Verify read register of DCM.")
     @allure.link(url="https://schneider-us.jamacloud.com/perspective.req#/testCases/3721670?projectId=795",
                  name="JAMA manual test case link")
     def test_02_case(self):
         print(222222222222222222222)
-        assert 1!=1
+        assert 1!=2
         
         
     
