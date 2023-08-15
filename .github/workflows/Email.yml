@@ -9,9 +9,9 @@ jobs:
 
     steps:
     - name: do something
-        run: |
-            echo 开始检查安装case脚本依赖的库和类
-            date
+      run: |
+        echo 11111111111111111
+        date
     - name: Send an email
       uses: actions/email@v6
       with:
