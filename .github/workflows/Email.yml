@@ -27,15 +27,25 @@ jobs:
   execute_test_case:
     runs-on:  windows-latest
     steps:
-      # - name: step1:- pull case script/library.
-      #   uses: actions/checkout@v3
-      #   with:
-      #     ref: main
-            
-      - name: step1:-Checkout the case's scripts.
-        run:  |
+      - name: step0:-Checkout the case's scripts.
+        run: |
           echo 11111111111111111111111111
           echo "isBurn: ${{ github.event.inputs.isBurn }}"
           echo "versionNumber: ${{ github.event.inputs.versionNumber }}"
           echo "isConnected: ${{ github.event.inputs.isConnected }}"
           echo "tagName: ${{ github.event.inputs.tagName }}"
+          
+      - name: step1:- pull case script/library.
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: step2:-Install the required libraries.
+        run: |
+          echo 开始检查安装case脚本依赖的库和类
+          pip install -r .\function/requirements.txt
+          pip install -r .\gateway_web_lib/requirements.txt
+          pip install -r .\mobile_lib/requirements.txt
+          echo 安装case脚本依赖库结束
+            
+      
