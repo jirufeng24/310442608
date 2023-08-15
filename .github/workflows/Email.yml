@@ -1,21 +1,8 @@
 name: Email test
 
-on: workflow_dispatch:
-    version_number: 
-          description: 'input the version number of gateway.'      
-          required: true 
-          default: 'v1.17.06' 
-        is_burn:
-          type: boolean
-          description: True or False
-        choice:
-          type: choice
-          description: Make a choice
-          options:
-          - hub
-          - cloud
-          - hub&cloud
-
+on: 
+    workflow_dispatch:
+    
 jobs:
   build-windows:
     runs-on: windows-latest
