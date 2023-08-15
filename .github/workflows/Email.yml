@@ -34,28 +34,8 @@ jobs:
             
       - name: step1:-Checkout the case's scripts.
         run: |
-          echo ${{ isBurn }}
-          echo ${{ versionNumber }}
+          echo 11111111111111111111111111
+          echo ${{isBurn}}
+          echo ${{versionNumber}}
           echo ${{ isConnected }}
           echo ${{ tagName }}
-          
-      # - name: step2:-Upgrade version file for gateway.
-      #   run: |
-      #     echo 开始执行网关烧录版本脚本--
-      #     python .\function/burn_main.py
-      #     echo 网关烧录版本完成--
-        
-      # - name: step3:-Automatically install the libraries.
-      #   run: |
-      #     echo 开始检查安装case脚本依赖的库和类
-      #     pip install -r .\function/requirements.txt
-      #     pip install -r .\gateway_web_lib/requirements.txt
-      #     pip install -r .\mobile_lib/requirements.txt
-      #     echo 安装case脚本依赖库结束
-          
-      # - name: step4:-Run the testcase script.
-      #   run: |
-      #     echo 开始脚本执行
-      #     robot -l D:\robot_output\log -r D:\robot_output\report -o D:\robot_output\output --include cloudANDgateway "PAS_500&700&700LT&DP"
-      #     echo 回归案例脚本执行结束
-          
