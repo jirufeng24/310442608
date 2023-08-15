@@ -26,9 +26,7 @@ jobs:
               issue_number: 119,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `New nightly build: ${{ needs.nightly.result }}
-              * Date: ${{ steps.get_date.outputs.DATE }}
+              body: `New nightly build: 1111
               * Link: https://github.schneider-electric.com/ShenNong/dcm
-              * Nightly package: https://jfrog-apac.se.com/ui/repos/tree/General/shennong-develop-generic-prod-fed/nightly?projectKey=shennong
               * Notification: @SESA627952 @SESA657209`
             })
