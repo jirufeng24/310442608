@@ -34,14 +34,15 @@ jobs:
           echo "versionNumber: ${{ github.event.inputs.versionNumber }}"
           echo "isConnected: ${{ github.event.inputs.isConnected }}"
           echo "tagName: ${{ github.event.inputs.tagName }}"
+          echo [${{ github.event.inputs.isBurn }}, ${{ github.event.inputs.versionNumber }}, ${{ github.event.inputs.isConnected }}, ${{ github.event.inputs.tagName }}]
           
       - name: step1:- pull case script/library.
         uses: actions/checkout@v3
         with:
           ref: main 
           
-      - name: step1.1:- get attribute value.
-        run: python .\CIScriptFiles/get_attribute.py
+      # - name: step1.1:- get attribute value.
+      #   run: python .\CIScriptFiles/get_attribute.py ${{ github.event.inputs.isBurn }} ${{ github.event.inputs.versionNumber }} ${{ github.event.inputs.isConnected }} ${{ github.event.inputs.tagName }}
 
       - name: step2:-Install the required libraries.
         run: |
