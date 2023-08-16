@@ -12,7 +12,7 @@ class GetParameter:
     :return: product_name: 选择的产品名
     """
 
-    def __init__(self, webpage_file_name, SELFSIGNED_file_name):
+    def __init__(self):
         pass
 
     def query_version_product(self):
