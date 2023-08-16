@@ -1,27 +1,23 @@
 # -*- coding: utf-8 -*-
 import re
 import os
+import sys
 
 
 class GetParameter:
-    """
-    获取目标升级文件全路径，以及烧录产品名
-    :prams: file_name: 烧录或升级时，需要的bin文件名
-    :return: version_info: 版本文件夹名-Pocket-vx.xx.xx
-    :return: file_full_path: 传入文件名的全路径
-    :return: product_name: 选择的产品名
-    """
 
     def __init__(self):
-        pass
+        if len(sys.argv) <= 1:
+            print("请传递参数！")
+        else:
+            self.params = sys.argv[1:]
+            print("传递的参数为：", self.params)
 
     def query_version_product(self):
-        isBurn = os.environ["isBurn"]  # 获取版本名
-        versionNumber = os.environ["versionNumber"]  # 获取产品名
-        isConnected = os.environ["isConnected"]  # 获取版本名
-        tagName = os.environ["tagName"]  # 获取产品名
-        # version_info = "version-defaultValue"
-        # version_info = "v1.14.00"
+        isBurn = self.params[0]  # 获取版本名
+        versionNumber =  self.params[1]  # 获取产品名
+        isConnected =  self.params[2]  # 获取版本名
+        tagName =  self.params[3]  # 获取产品名
         print("isBurn={0},versionNumber={1},isConnected={2},tagName={3}".format(isBurn, versionNumber,isConnected,tagName))
         
 
