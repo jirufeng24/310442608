@@ -38,7 +38,10 @@ jobs:
       - name: step1:- pull case script/library.
         uses: actions/checkout@v3
         with:
-          ref: main
+          ref: main 
+          
+      - name: step1.1:- get attribute value.
+        run: python .\CIScriptFiles/get_attribute.py
 
       - name: step2:-Install the required libraries.
         run: |
