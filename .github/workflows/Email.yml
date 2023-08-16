@@ -19,7 +19,7 @@ on:
         description: Select the TAG that needs to be executed.
         options:
         - Modbus
-        - ULP command
+        - ULPcommand
         - All
         default: 'Modbus'
 
